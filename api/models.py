@@ -34,3 +34,6 @@ class NavBar(models.Model):
 class Avatar (models.Model):
     user_id = models.CharField(max_length=30,verbose_name="Nom d' utilisateur ")
     image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.user_id

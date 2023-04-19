@@ -33,7 +33,7 @@ def NavBar_API(request):
 @api_view(['GET'])
 def Avatar_API(request):
 
-    a = Avatar.objects.all()
+    a = Avatar.objects.first()
 
     if a:
         sa = AvatarSerializer(a, many=False)
