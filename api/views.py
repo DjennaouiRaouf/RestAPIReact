@@ -19,7 +19,6 @@ def Profile_API(request):
         return None
 
 
-
 @api_view(['GET'])
 def NavBar_API(request):
 
@@ -27,5 +26,17 @@ def NavBar_API(request):
     if n:
         np = NavBarSerializer(n, many=True)
         return Response(np.data)
+    else:
+        return None
+
+
+@api_view(['GET'])
+def Avatar_API(request):
+
+    a = Avatar.objects.all()
+
+    if a:
+        sa = AvatarSerializer(a, many=False)
+        return Response(sa.data)
     else:
         return None

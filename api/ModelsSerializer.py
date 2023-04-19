@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import *
 
-
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
@@ -17,3 +16,10 @@ class NavBarSerializer(serializers.ModelSerializer):
     def get_children(self, obj):
         serializer = self.__class__(obj.children.all(), many=True)
         return serializer.data
+
+
+
+class AvatarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Avatar
+        fields = '__all__'

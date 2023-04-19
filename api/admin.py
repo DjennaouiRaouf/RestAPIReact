@@ -33,3 +33,11 @@ class NavBarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_filter = ['item', 'href','parent']
 
 admin.site.register(NavBar, NavBarAdmin)
+
+
+class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+    list_per_page = lp
+    list_display = ('user_id','image')
+    list_filter = ['user_id']
+
+admin.site.register(Avatar, AvatarAdmin)
