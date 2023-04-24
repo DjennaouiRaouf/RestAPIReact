@@ -2,17 +2,18 @@
 import React, { useState,useEffect } from 'react';
 import { useHistory,Link} from 'react-router-dom';
 import axios from 'axios';
+import config from '../config.json';
 
 function NavBar() {
-  const [navitem, setnavitem] = useState(null);
-  const [avatar, setavatar] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   const history = useHistory();
 
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/avatar`)
+
+    axios.get(`${config.apiUrl}/avatar`)
       .then((response) => {
-        setavatar(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -30,10 +31,16 @@ function NavBar() {
 
 
 return(
-     <nav className="navbar navbar-light navbar-expand-md py-3" style={{"background": "rgb(236,241,244)"}}>
-         <div className="container"><a className="navbar-brand d-flex align-items-center" href="/src/Components/Pages"><span
-             style={{"fontSize": "16px"}}><img src={avatar.image} width="51" alt=""
-                                               height="51"/><strong><em>&nbsp;{avatar.username}</em></strong></span></a>
+    <div id="nav">
+
+            <nav className="navbar navbar-light navbar-expand-md py-3" style={{"background": "rgb(236,241,244)"}}>
+            <div className="container"><a className="navbar-brand d-flex align-items-center" href="#"><span
+             style={{"fontSize": "16px"}}>
+
+                    <img src={"avatar.image"} width="51" alt="" height="51"/>
+                    <strong><em>&nbsp;{"avatar.username"}</em></strong></span></a>
+
+
              <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
                  className="visually-hidden">Toggle navigation</span><span
                  className="navbar-toggler-icon"></span></button>
@@ -61,6 +68,10 @@ return(
              </div>
          </div>
      </nav>
+
+
+    </div>
+
     );
 }
 

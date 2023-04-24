@@ -6,11 +6,11 @@ function App() {
     <div className="App">
 
         <Router>
-                <Switch>
-                  <Route exact path='/' component={NavBar}/>
-
-                </Switch>
-            </Router>
+            <Switch>
+                <Route exact path='/' component={NavBar}/>
+                <Route  path='*' component={Error}/>
+            </Switch>
+        </Router>
     </div>
   );
 }
