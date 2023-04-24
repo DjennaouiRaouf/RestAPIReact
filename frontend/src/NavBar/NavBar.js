@@ -3,20 +3,22 @@ import React, { useState,useEffect } from 'react';
 import { useHistory,Link} from 'react-router-dom';
 import axios from 'axios';
 import config from '../config.json';
-
+import empty_avatar from './avatar_empty.png';
 function NavBar() {
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState({});
   const history = useHistory();
 
 
   useEffect(() => {
 
-    axios.get(`${config.apiUrl}/avatar`)
+    axios.get(`${config.apiUrl}/avatar/`)
       .then((response) => {
-        console.log(response.data);
+        setAvatar(response.data);
+
       })
       .catch((error) => {
         console.log(error);
+
       });
   });
 
@@ -34,16 +36,36 @@ return(
     <div id="nav">
 
             <nav className="navbar navbar-light navbar-expand-md py-3" style={{"background": "rgb(236,241,244)"}}>
-            <div className="container"><a className="navbar-brand d-flex align-items-center" href="#"><span
+                <div className="container">
+
+                <a className="navbar-brand d-flex align-items-center" href="#">
+
+                    <span
              style={{"fontSize": "16px"}}>
+                {
+                    avatar.image!=null &&
+                    <img src={`${config.mediaUrl}`+avatar.image} width="51" alt="" height="51"/>
+                }
+                {
+                    avatar.image == null &&
+                    <img src={empty_avatar} width="51" alt="" height="51"/>
+                }
+                {
+                    avatar.user_id!= null &&
+                    <strong><em>&nbsp;{avatar.user_id}</em></strong>
+                }
 
-                    <img src={"avatar.image"} width="51" alt="" height="51"/>
-                    <strong><em>&nbsp;{"avatar.username"}</em></strong></span></a>
+            </span></a>
 
-
-             <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
+                    { Object.keys(avatar).length != 0 &&
+                        <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
                  className="visually-hidden">Toggle navigation</span><span
                  className="navbar-toggler-icon"></span></button>
+                    }
+
+
+
+                    { Object.keys(avatar).length != 0 &&
              <div className="collapse navbar-collapse" id="navcol-1">
                  <ul className="navbar-nav me-auto">
                      <li className="nav-item ">
@@ -66,6 +88,7 @@ return(
                      <li className="nav-item "><Link className="nav-link float-on-hover" to="/information">Informations</Link></li>
                  </ul>
              </div>
+                    }
          </div>
      </nav>
 
