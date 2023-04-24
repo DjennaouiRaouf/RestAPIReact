@@ -20,11 +20,11 @@ def Profile_API(request):
 
 
 @api_view(['GET'])
-def NavBar_API(request):
+def Competence_API(request):
 
-    n = NavBar.objects.filter(parent=None)
+    n = Competence.objects.filter(parent=None)
     if n:
-        np = NavBarSerializer(n, many=True)
+        np = CompetenceSerializer(n, many=True)
         return Response(np.data)
     else:
         return None

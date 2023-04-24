@@ -6,11 +6,11 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = '__all__'
 
-class NavBarSerializer(serializers.ModelSerializer):
+class CompetenceSerializer(serializers.ModelSerializer):
     children = serializers.SerializerMethodField()
 
     class Meta:
-        model = NavBar
+        model = Competence
         fields = '__all__'
 
     def get_children(self, obj):

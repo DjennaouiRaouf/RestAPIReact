@@ -26,13 +26,13 @@ class ProfileAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 admin.site.register(Profile, ProfileAdmin)
 
 
-class NavBarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_per_page = lp
-    list_display = ('item','href','parent')
+    list_display = ('type','image','title','text','parent')
 
-    list_filter = ['item', 'href','parent']
+    list_filter = ['type','image','title','text','parent']
 
-admin.site.register(NavBar, NavBarAdmin)
+admin.site.register(Competence,CompetenceAdmin)
 
 
 class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):

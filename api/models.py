@@ -22,9 +22,11 @@ class Profile(models.Model):
     universite = models.CharField(max_length=250, null=False)
 
 
-class NavBar(models.Model):
-    item = models.CharField(max_length=100)
-    href = models.CharField(max_length=5000,null=True)
+class Competence(models.Model):
+    type = models.CharField(max_length=100,primary_key=True)
+    image = models.ImageField(upload_to='images/')
+    title=models.CharField(max_length=100)
+    text=models.TextField()
     parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
 
     def __str__(self):
