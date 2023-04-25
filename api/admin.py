@@ -32,6 +32,20 @@ class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_display = ('type','image','title','text','parent')
 
     list_filter = ['type','image','title','text','parent']
+    def delete_model(self, request, obj):
+        if obj.image:
+            file_path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
+            os.remove(file_path)
+        obj.delete()
+
+    def delete_queryset(self, request, queryset):
+        for obj in queryset:
+            if obj.image:
+                path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
+                os.remove(path)
+        super(CompetenceAdmin, self).delete_queryset(request, queryset)
+
+
 
 admin.site.register(Competence,CompetenceAdmin)
 
