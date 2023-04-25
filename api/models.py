@@ -30,7 +30,7 @@ class Competence(models.Model):
     parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
 
     def __str__(self):
-        return  self.title
+        return  self.type
 
 
 class Avatar (models.Model):
