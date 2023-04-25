@@ -23,7 +23,13 @@ class Profile(models.Model):
 
 
 class Competence(models.Model):
-    type = models.CharField(max_length=100,primary_key=True)
+    cat = [
+        ('1','Language de programmation'),
+        ('2','Base de données'),
+        ('3','Systéme d\'éxploitation'),
+
+    ]
+    type = models.CharField(max_length=100,choices=cat,null=False)
     image = models.ImageField(upload_to='images/')
     title=models.CharField(max_length=100)
     text=models.TextField()
