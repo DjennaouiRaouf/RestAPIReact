@@ -40,7 +40,7 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_per_page = lp
     list_display = ('user_id','image')
     list_filter = ['user_id']
-    actions = ['delete_selected']
+
 
     def delete_model(self, request, obj):
         if obj.image:
@@ -48,7 +48,12 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
             os.remove(file_path)
         obj.delete()
 
-
+    def delete_queryset(self, request, queryset):
+        for obj in queryset:
+            if obj.image:
+                path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
+                os.remove(path)
+        super(AvatarAdmin, self).delete_queryset(request, queryset)
 
 
 admin.site.register(Avatar, AvatarAdmin)
