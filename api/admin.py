@@ -5,8 +5,6 @@ from django.contrib import admin
 # Register your models here.
 
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
 from import_export.admin import ImportExportMixin, ExportActionMixin
 
 from RestAPIReact import settings
@@ -42,11 +40,15 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_per_page = lp
     list_display = ('user_id','image')
     list_filter = ['user_id']
+    actions = ['delete_selected']
 
     def delete_model(self, request, obj):
         if obj.image:
             file_path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
             os.remove(file_path)
         obj.delete()
+
+
+
 
 admin.site.register(Avatar, AvatarAdmin)
