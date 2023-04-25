@@ -43,21 +43,21 @@ return(
                     <span
              style={{"fontSize": "16px"}}>
                 {
-                    avatar.image!=null &&
+                    avatar.image!==null &&
                     <img src={`${config.mediaUrl}`+avatar.image} width="51" alt="" height="51"/>
                 }
                 {
-                    avatar.image == null &&
+                    avatar.image === null &&
                     <img src={empty_avatar} width="51" alt="" height="51"/>
                 }
                 {
-                    avatar.user_id!= null &&
+                    avatar.user_id!== null &&
                     <strong><em>&nbsp;{avatar.user_id}</em></strong>
                 }
 
             </span></a>
 
-                    { Object.keys(avatar).length != 0 &&
+                    { Object.keys(avatar).length !== 0 &&
                         <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
                  className="visually-hidden">Toggle navigation</span><span
                  className="navbar-toggler-icon"></span></button>
@@ -65,7 +65,7 @@ return(
 
 
 
-                    { Object.keys(avatar).length != 0 &&
+                    { Object.keys(avatar).length !== 0 &&
              <div className="collapse navbar-collapse" id="navcol-1">
                  <ul className="navbar-nav me-auto">
                      <li className="nav-item ">
@@ -87,6 +87,9 @@ return(
                      </li>
                      <li className="nav-item "><Link className="nav-link float-on-hover" to="/information">Informations</Link></li>
                  </ul>
+                 <button className="btn btn-primary" type="button"><i className="far fa-user"
+                                                                      style={{"marginRight": "7px"}}></i>Admin
+                 </button>
              </div>
                     }
          </div>
