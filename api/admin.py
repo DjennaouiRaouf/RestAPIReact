@@ -29,9 +29,9 @@ admin.site.register(Profile, ProfileAdmin)
 
 class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_per_page = lp
-    list_display = ('type','image','title','text','parent')
+    list_display = ('title','type','image','text',)
 
-    list_filter = ['type','image','title','text','parent']
+    list_filter = ['title','type','image','text',]
     def delete_model(self, request, obj):
         if obj.image:
             file_path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
@@ -71,3 +71,9 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 
 
 admin.site.register(Avatar, AvatarAdmin)
+
+
+class TypeAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+    list_per_page = lp
+    list_display = ('type',)
+admin.site.register(Type, TypeAdmin)

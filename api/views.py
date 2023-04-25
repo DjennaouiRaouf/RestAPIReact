@@ -23,7 +23,7 @@ def Profile_API(request):
 @api_view(['GET'])
 def Competence_API(request):
 
-    n = Competence.objects.filter(parent=None)
+    n = Competence.objects.all()
     if n:
         np = CompetenceSerializer(n, many=True)
         return Response(np.data,status=status.HTTP_200_OK)

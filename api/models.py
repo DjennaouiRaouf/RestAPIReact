@@ -21,22 +21,19 @@ class Profile(models.Model):
     adresse=models.CharField(max_length=350,null=False)
     universite = models.CharField(max_length=250, null=False)
 
+class Type(models.Model):
+    type = models.CharField(max_length=100,primary_key=True)
+    def __str__(self):
+        return self.type
 
 class Competence(models.Model):
-    cat = [
-        ('1','Language de programmation'),
-        ('2','Base de données'),
-        ('3','Systéme d\'éxploitation'),
-
-    ]
-    type = models.CharField(max_length=100,choices=cat,null=False)
+    type = models.ForeignKey(Type,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/')
-    title=models.CharField(max_length=100)
+    title=models.CharField(max_length=100,unique=True)
     text=models.TextField()
-    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
 
     def __str__(self):
-        return  self.type
+        return  self.title
 
 
 class Avatar (models.Model):
