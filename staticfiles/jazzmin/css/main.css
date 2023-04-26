@@ -910,7 +910,7 @@ body.jazzmin-login-page {
     height: auto !important;
 }
 .sidebar{
-    overflow:hidden;
+    background: red;
 }
 /* Hide scrollbar */
 .layout-fixed #jazzy-sidebar {
