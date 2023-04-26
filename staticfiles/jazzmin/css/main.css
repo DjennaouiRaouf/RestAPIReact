@@ -908,6 +908,7 @@ body.jazzmin-login-page {
 /* calculate height to fit content, we don't to enable scrolling if the content fits */
 .layout-fixed #jazzy-sidebar .sidebar {
     height: auto !important;
+    overflow-x:hidden ;
 }
 .sidebar{
     background: red;
