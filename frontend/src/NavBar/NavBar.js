@@ -31,6 +31,9 @@ function NavBar() {
         //history.push("/")
   }
 
+  const admin =() => {
+        history.push("/admin")
+  }
 
 return(
     <div id="nav">
@@ -87,7 +90,7 @@ return(
                      </li>
                      <li className="nav-item "><Link className="nav-link float-on-hover" to="/information">Informations</Link></li>
                  </ul>
-                 <button className="btn btn-primary" type="button"><i className="far fa-user"
+                 <button className="btn btn-primary" type="button" ><i className="far fa-user"
                                                                       style={{"marginRight": "7px"}}></i>Admin
                  </button>
              </div>
