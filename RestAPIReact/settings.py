@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5%viv433r8up(t_7rqrb49vtflw#-#=vhsc1$h%$!8y_8elea(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.railway.app','localhost']
 
 
 # Application definition
@@ -170,9 +170,9 @@ JAZZMIN_SETTINGS = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    '*',
+    'https://djennaouiraouf.up.railway.app',
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    '*',
+    'https://djennaouiraouf.up.railway.app',
 ]
