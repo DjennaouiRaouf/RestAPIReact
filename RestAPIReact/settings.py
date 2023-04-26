@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5%viv433r8up(t_7rqrb49vtflw#-#=vhsc1$h%$!8y_8elea(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.railway.app']
 
 
 # Application definition
@@ -147,9 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+
 
 PHONENUMBER_DEFAULT_REGION = 'DZ'
 
@@ -170,3 +168,11 @@ JAZZMIN_SETTINGS = {
     # Whether to aut expand the menu
     "navigation_expanded": False,
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://djennaouiraouf.up.railway.app/',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'https://djennaouiraouf.up.railway.app/',
+]
