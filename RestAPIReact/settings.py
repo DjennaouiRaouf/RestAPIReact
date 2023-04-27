@@ -127,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend','build', 'static'),
@@ -167,7 +167,9 @@ JAZZMIN_SETTINGS = {
 
     # Whether to aut expand the menu
     "navigation_expanded": False,
+
 }
+
 
 '''
 CSRF_TRUSTED_ORIGINS = [
@@ -176,8 +178,8 @@ CSRF_TRUSTED_ORIGINS = [
 CORS_ORIGIN_WHITELIST = [
     #'https://djennaouiraouf.up.railway.app',
 ]
-'''
 
+'''
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]

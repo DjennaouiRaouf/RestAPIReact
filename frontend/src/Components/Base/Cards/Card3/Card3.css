@@ -1,0 +1,8 @@
+.fit-cover {
+    object-fit: cover;
+}
+.center {
+    display: block;
+    margin: auto;
+    width: 250px;
+}

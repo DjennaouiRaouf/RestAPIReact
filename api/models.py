@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.core.validators import MinValueValidator
+
 # Create your models here.
 
 class Profile(models.Model):
@@ -20,6 +22,8 @@ class Profile(models.Model):
     titre_du_diplome=models.CharField(max_length=300,null=False)
     adresse=models.CharField(max_length=350,null=False)
     universite = models.CharField(max_length=250, null=False)
+    text= models.TextField()
+    cv=models.FileField(upload_to='files')
 
 class Type(models.Model):
     type = models.CharField(max_length=100,primary_key=True)
@@ -49,3 +53,22 @@ class Langue(models.Model):
     score = models.CharField(max_length=10,null=True,blank=True)
     def __str__(self):
         return self.langue
+
+
+class Parcour(models.Model):
+    titre = models.CharField(max_length=100)
+    annee = models.PositiveIntegerField(validators=[MinValueValidator(1900)],null=False)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.titre
+
+class Projet(models.Model):
+    titre = models.CharField(max_length=100)
+    annee = models.PositiveIntegerField(validators=[MinValueValidator(1900)],null=False)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.titre
+
+

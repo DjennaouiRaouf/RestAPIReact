@@ -12,9 +12,9 @@ from . ModelsSerializer import  *
 @api_view(['GET'])
 def Profile_API(request):
 
-    p = Profile.objects.all()
+    p = Profile.objects.first()
     if p:
-        sp = ProfileSerializer(p, many=True)
+        sp = ProfileSerializer(p, many=False)
         return Response(sp.data, status=status.HTTP_200_OK)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -51,6 +51,36 @@ def Langue_API(request):
         return Response(lp.data,status=status.HTTP_200_OK)
     else:
         return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+
+@api_view(['GET'])
+def Parcour_API(request):
+
+    p = Parcour.objects.all()
+    if p:
+        pp = ParcourSerializer(p, many=True)
+        return Response(pp.data,status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+
+@api_view(['GET'])
+def Projet_API(request):
+
+    p = Projet.objects.all()
+    if p:
+        pp = ProjetSerializer(p, many=True)
+        return Response(pp.data,status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+
+
+
+
 
 @api_view(['GET'])
 def Avatar_API(request):

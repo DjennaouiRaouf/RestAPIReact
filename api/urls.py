@@ -7,4 +7,6 @@ urlpatterns = [
     path('avatar/', views.Avatar_API, name='Avatar'),
     path('type/', views.Type_API, name='Type'),
     path('langue/', views.Langue_API, name='Langue'),
+    path('parcour/', views.Parcour_API, name='Parcour'),
+    path('projet/', views.Projet_API, name='Projet'),
 ]

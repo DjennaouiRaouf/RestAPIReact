@@ -16,6 +16,18 @@ class TypeSerializer(serializers.ModelSerializer):
         model = Type
         fields = '__all__'
 
+class ParcourSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Parcour
+        fields = '__all__'
+
+class ProjetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Projet
+        fields = '__all__'
+
+
+
 
 class LangueSerializer(serializers.ModelSerializer):
     class Meta:
