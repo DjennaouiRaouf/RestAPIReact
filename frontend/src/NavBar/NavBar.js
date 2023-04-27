@@ -4,6 +4,9 @@ import { useHistory,Link} from 'react-router-dom';
 import axios from 'axios';
 import config from '../config.json';
 import empty_avatar from './avatar_empty.png';
+import Foot from "../Foot";
+import Card from "../Cards/Card";
+import Card1 from "../Cards/Card1";
 function NavBar() {
   const [avatar, setAvatar] = useState({});
   const history = useHistory();
@@ -41,7 +44,7 @@ return(
             <nav className="navbar navbar-light navbar-expand-md py-3" style={{"background": "rgb(236,241,244)"}}>
                 <div className="container">
 
-                <a className="navbar-brand d-flex align-items-center" href="#">
+                <div className="navbar-brand d-flex align-items-center" >
 
                     <span
              style={{"fontSize": "16px"}}>
@@ -58,7 +61,7 @@ return(
                     <strong><em>&nbsp;{avatar.user_id}</em></strong>
                 }
 
-            </span></a>
+            </span></div>
 
                     { Object.keys(avatar).length !== 0 &&
                         <button data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="#navcol-1"><span
@@ -90,7 +93,7 @@ return(
                      </li>
                      <li className="nav-item "><Link className="nav-link float-on-hover" to="/information">Informations</Link></li>
                  </ul>
-                 <button className="btn btn-primary" type="button" ><i className="far fa-user"
+                 <button className="btn btn-primary" type="button" onClick={admin} ><i className="far fa-user"
                                                                       style={{"marginRight": "7px"}}></i>Admin
                  </button>
              </div>
@@ -98,6 +101,7 @@ return(
          </div>
      </nav>
 
+    <Card1/>
 
     </div>
 

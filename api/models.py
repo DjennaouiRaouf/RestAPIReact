@@ -42,3 +42,10 @@ class Avatar (models.Model):
 
     def __str__(self):
         return self.user_id
+
+class Langue(models.Model):
+    langue = models.CharField(max_length=30)
+    image = models.ImageField(upload_to='images/')
+    score = models.CharField(max_length=10,null=True,blank=True)
+    def __str__(self):
+        return self.langue

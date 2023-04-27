@@ -11,7 +11,16 @@ class CompetenceSerializer(serializers.ModelSerializer):
         model = Competence
         fields = '__all__'
 
+class TypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Type
+        fields = '__all__'
 
+
+class LangueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Langue
+        fields = '__all__'
 
 
 
