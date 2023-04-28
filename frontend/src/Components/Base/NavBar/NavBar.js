@@ -30,7 +30,7 @@ function NavBar() {
   };
 
   const switch_page =() => {
-        //history.push("/")
+        history.push("/")
   }
 
   const admin =() => {
