@@ -19,7 +19,7 @@ function Card2 () {
   });
 
 
-  if(projet.length!=0){
+  if(projet.length!==0){
   return(
        <section style={{"backgroundColor":"transparent"}}>
                 <h1 id="proj">Projets</h1>

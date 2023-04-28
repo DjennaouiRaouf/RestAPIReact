@@ -6,6 +6,12 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = '__all__'
 
+class ProfileInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        exclude =('id','text','cv')
+
+
 class CompetenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Competence

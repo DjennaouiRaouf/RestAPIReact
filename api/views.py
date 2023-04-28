@@ -20,6 +20,20 @@ def Profile_API(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
+
+@api_view(['GET'])
+def ProfileInfo_API(request):
+
+    p = Profile.objects.first()
+    if p:
+        sp = ProfileInfoSerializer(p, many=False)
+        return Response(sp.data, status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+
+
 @api_view(['GET'])
 def Competence_API(request):
 

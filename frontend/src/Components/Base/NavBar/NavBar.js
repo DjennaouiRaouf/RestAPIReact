@@ -3,7 +3,7 @@ import { useHistory,Link} from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json';
 import empty_avatar from './avatar_empty.png';
-import Card3 from "../Cards/Card3";
+
 
 
 function NavBar() {
@@ -100,7 +100,6 @@ return(
          </div>
      </nav>
 
-    <Card3/>
 
     </div>
 
