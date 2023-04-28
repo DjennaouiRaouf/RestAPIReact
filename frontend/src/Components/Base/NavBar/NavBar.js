@@ -26,7 +26,7 @@ function NavBar() {
 
   const goToCvScroll = (elemId) => {
      var elem = document.getElementById(elemId);
-     //elem.scrollIntoView();
+     elem.scrollIntoView();
   };
 
   const switch_page =() => {
