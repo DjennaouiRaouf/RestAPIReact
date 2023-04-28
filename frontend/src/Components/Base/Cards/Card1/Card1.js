@@ -43,7 +43,7 @@ function Card1 () {
                                   <div className="single_advisor_details_info">
                                       <h6>{element.langue}</h6>
                                       {
-                                          element.score !== "" &&
+                                          element.score !== null &&
                                           <div>
                                               <hr/>
                                               <h6>{"Niveau: " + element.score}</h6>

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./TimeLine.css"
 import axios from "axios";
+import parse from "html-react-parser";
 import config from "../../../config.json";
 function TimeLine () {
    const [parcours,setParcours] = useState([]);
@@ -24,18 +25,18 @@ function TimeLine () {
 
                         <h1 id="p">Mon Parcours</h1>
                         <div className="container">
-                            <h3 className="card-title"></h3>
+                            <h3 className="card-title"> </h3>
                             <div className="row">
                                 <div className="col-md-12 animate fadeInDown two">
                                     <div className="main-timeline4 ">
-                                        {parcours.map((parcours, key) =>
+                                        {parcours.map((p, key) =>
                                             <div className="timeline animate fadeInDown two " key={key}>
                                                 <span className="timeline-icon"></span>
-                                                <span className="year pulse-grow-on-hover">{parcours.annee}</span>
+                                                <span className="year pulse-grow-on-hover">{p.annee}</span>
                                                 <div className="timeline-content pulse-grow-on-hover">
-                                                    <h3 className="title">{parcours.titre}</h3>
+                                                    <h3 className="title">{p.titre}</h3>
                                                     <p className="description">
-                                                        {parcours.texte}
+                                                        {parse(p.text)}
                                                     </p>
                                                 </div>
                                             </div>
