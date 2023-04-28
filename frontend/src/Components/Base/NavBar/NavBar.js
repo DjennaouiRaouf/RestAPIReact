@@ -1,26 +1,21 @@
-import React, { useState,useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory,Link} from 'react-router-dom';
 import axios from 'axios';
 import config from '../../../config.json';
 import empty_avatar from './avatar_empty.png';
 
-
-
 function NavBar() {
   const [avatar, setAvatar] = useState({});
   const history = useHistory();
-
 
   useEffect(() => {
 
     axios.get(`${config.apiUrl}/avatar/`)
       .then((response) => {
-        setAvatar(response.data);
-
+         setAvatar(response.data);
       })
       .catch((error) => {
         console.log(error);
-
       });
   });
 
@@ -40,6 +35,7 @@ function NavBar() {
   if(Object.keys(avatar).length !== 0) {
 
       return (
+
           <div id="nav">
 
               <nav className="navbar navbar-light navbar-expand-md py-3" style={{"background": "rgb(236,241,244)"}}>
@@ -100,13 +96,9 @@ function NavBar() {
                                                                                                style={{"marginRight": "7px"}}></i>Admin
                           </button>
                       </div>
-
                   </div>
               </nav>
-
-
           </div>
-
       );
   }
 }

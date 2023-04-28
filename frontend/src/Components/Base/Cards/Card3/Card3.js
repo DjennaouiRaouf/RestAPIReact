@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Card3.css";
 import axios from "axios";
 import config from "../../../../config.json";
+import parse from "html-react-parser";
 
 
 function Card3 () {
@@ -21,37 +22,31 @@ function Card3 () {
     });
     if(Object.keys(prof).length!==0)
     {
-        return(
-            <div className="container">
-                <section>
-
-                    <h1 id="p">Mon Parcours</h1>
-                    <div  className="container" >
-                        <h3 className="card-title"> </h3>
-                        <div className="row">
-                            <div className="col-md-12 animate fadeInDown two" >
-                                <div className="main-timeline4 ">
-                                    {prof.map((parcours,key) =>
-                                        <div className="timeline animate fadeInDown two " key={key}>
-                                            <span className="timeline-icon"></span>
-                                            <span className="year pulse-grow-on-hover">{parcours.annee}</span>
-                                            <div className="timeline-content pulse-grow-on-hover">
-                                                <h3 className="title">{parcours.titre}</h3>
-                                                <p className="description">
-                                                    {parcours.text}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    )}
-
+       return(
+            <section>
+                <h1 id="prof">Profil</h1>
+                <section className="py-4 py-xl-5">
+                    <div className="container" >
+                        <div className=" border rounded border-0 border-dark overflow-hidden" style={{"background":"transparent"}} >
+                            <div className="row g-0">
+                                <div className="col-md-6">
+                                    <div className="text-dark p-4 p-md-5">
+                                        <h2 className="fw-bold text-dark mb-3">{prof.nom+" "+prof.prenom}</h2>
+                                        <div className="mb-4">{parse(prof.text)}</div>
+                                        <div className="my-3"><a className="btn btn-primary btn-lg me-2" role="button"
+                                                                 href={`${config.mediaUrl}`+prof.cv}><i className="fas fa-download"></i></a><a
+                                            className="btn btn-light btn-lg" role="button" href="https://www.overleaf.com/"  target="_blank" rel="noopener noreferrer"><i
+                                            className="far fa-edit"></i></a></div>
+                                    </div>
                                 </div>
+                                <div className="col-md-6 order-first order-md-last center" style={{"minHeight": "200px"}} ><img alt=""
+                                    className="center"
+                                    src={`${config.mediaUrl}`+prof.photo_de_profil}/></div>
                             </div>
                         </div>
                     </div>
                 </section>
-
-            </div>
-
+            </section>
         );
 
     }
