@@ -25,8 +25,8 @@ function NavBar() {
   });
 
   const goToCvScroll = (elemId) => {
-     var elem = document.getElementById(elemId);
-     elem.scrollIntoView();
+     //var elem = document.getElementById(elemId);
+     //elem.scrollIntoView();
   };
 
   const switch_page =() => {
