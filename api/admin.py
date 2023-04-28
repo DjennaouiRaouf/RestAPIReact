@@ -54,7 +54,7 @@ class ProfileAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
             if obj.cv:
                 file_path = os.path.join(settings.MEDIA_ROOT, obj.cv.name)
                 os.remove(file_path)
-        super(CompetenceAdmin, self).delete_queryset(request, queryset)
+        super(ProfileAdmin, self).delete_queryset(request, queryset)
 
 
 admin.site.register(Profile, ProfileAdmin)
@@ -71,17 +71,10 @@ class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
         if change:
             old_obj = self.model.objects.get(pk=obj.pk)
 
-            if old_obj.image and obj.cv != old_obj.image:
+            if old_obj.image and obj.image != old_obj.image:
                 os.remove(os.path.join(settings.MEDIA_ROOT, str(old_obj.image)))
 
         obj.save()
-
-    def change_view(self, request, object_id, form_url="", extra_context=None):
-        obj = self.get_object(request, object_id)
-        if obj.image:
-            file_path = obj.image.path
-            default_storage.delete(file_path)
-        return super().change_view(request, object_id, form_url=form_url, extra_context=extra_context)
 
     def delete_model(self, request, obj):
         if obj.image:
@@ -111,16 +104,10 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
         if change:
             old_obj = self.model.objects.get(pk=obj.pk)
 
-            if old_obj.image and obj.cv != old_obj.image:
+            if old_obj.image and obj.image != old_obj.image:
                 os.remove(os.path.join(settings.MEDIA_ROOT, str(old_obj.image)))
 
         obj.save()
-    def change_view(self, request, object_id, form_url="", extra_context=None):
-        obj = self.get_object(request, object_id)
-        if obj.image:
-            file_path = obj.image.path
-            default_storage.delete(file_path)
-        return super().change_view(request, object_id, form_url=form_url, extra_context=extra_context)
 
     def delete_model(self, request, obj):
         if obj.image:
@@ -154,7 +141,7 @@ class LangueAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
         if change:
             old_obj = self.model.objects.get(pk=obj.pk)
 
-            if old_obj.image and obj.cv != old_obj.image:
+            if old_obj.image and obj.image != old_obj.image:
                 os.remove(os.path.join(settings.MEDIA_ROOT, str(old_obj.image)))
 
         obj.save()
@@ -170,7 +157,7 @@ class LangueAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
             if obj.image:
                 path = os.path.join(settings.MEDIA_ROOT, obj.image.name)
                 os.remove(path)
-        super(AvatarAdmin, self).delete_queryset(request, queryset)
+        super(Langue, self).delete_queryset(request, queryset)
 
 admin.site.register(Langue, LangueAdmin)
 
