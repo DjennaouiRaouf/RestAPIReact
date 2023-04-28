@@ -66,7 +66,7 @@ function NavBar() {
                               <li className="nav-item ">
                                   <div className="dropdown show">
                                       <Link className="nav-link dropdown-toggle float-on-hover" aria-expanded="true"
-                                            data-bs-toggle="dropdown" to="#" onClick={switch_page()}>Cv</Link>
+                                            data-bs-toggle="dropdown" to="#" onClick={switch_page}>Cv</Link>
                                       <div className="dropdown-menu " data-bs-popper="none"
                                            style={{"background": "rgb(236,241,244)"}}>
                                           <Link className="dropdown-item float-on-hover" to="#"
