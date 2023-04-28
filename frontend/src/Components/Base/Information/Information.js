@@ -40,8 +40,9 @@ function Information () {
                                              <tbody>
 
                                              {Object.keys(info).map(key => {
-                                                 return (
-                                                     { key !== "photo_de_profil" &&
+                                                  if(key !== "photo_de_profil"){
+
+                                                        return(
                                                          <tr key={key}>
                                                              <td style={{"fontSize": "13px"}}><strong><span
                                                                  className="glyphicon glyphicon-asterisk text-primary"></span>
@@ -51,9 +52,13 @@ function Information () {
                                                                  {info[key]}
                                                              </td>
                                                          </tr>
-                                                     }
 
-                                                 );
+                                                     );
+
+                                                  }
+                                                  else{
+                                                      return null;
+                                                  }
                                              })}
 
                                              </tbody>
