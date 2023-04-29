@@ -29,7 +29,7 @@ function NavBar() {
   }
 
   const admin =() => {
-        history.push("/admin")
+        window.location.href=`${config.mediaUrl}/admin`
   }
 
   if(Object.keys(avatar).length !== 0) {

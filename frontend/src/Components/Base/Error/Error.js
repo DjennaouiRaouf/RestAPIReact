@@ -1,6 +1,13 @@
 import React from "react";
 import "./Error.css";
+import {useHistory} from "react-router-dom";
 function Error(){
+
+      const history = useHistory();
+
+      const go_home =() => {
+        history.push("/")
+      }
 
    return(
             <div style={{
@@ -20,9 +27,9 @@ function Error(){
                                     <span className="inner-status">Oops! Vous etes perdu</span>
                                     <span className="inner-detail" >
                     Page introuvable
-                    <a style={{"marginLeft":"10px"}} href="/frontend/public" className="btn btn-info mtl"><i className="fa fa-home" ></i>&nbsp;
+                    <button style={{"marginLeft":"10px"}} onClick={go_home} className="btn btn-info mtl"><i className="fa fa-home" ></i>&nbsp;
                         Retour
-                    </a>
+                    </button>
                 </span>
                                 </div>
                             </div>
