@@ -173,16 +173,16 @@ JAZZMIN_SETTINGS = {
 }
 
 
-'''
+
 CSRF_TRUSTED_ORIGINS = [
     'https://djennaouiraouf.up.railway.app',
 ]
 CORS_ORIGIN_WHITELIST = [
     'https://djennaouiraouf.up.railway.app',
 ]
-'''
 
+'''
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
+'''
