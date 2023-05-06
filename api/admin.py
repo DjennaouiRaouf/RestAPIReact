@@ -1,17 +1,30 @@
 import os
 
+from admin_interface.models import Theme
 from django.contrib import admin
-
-# Register your models here.
-
-from django.contrib import admin
-from django.core.files.storage import default_storage
+from django.contrib.auth.models import Group
 from import_export.admin import ImportExportMixin, ExportActionMixin
 
 from RestAPIReact import settings
 from .models import *
 
 lp=40
+
+class CustomUserAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+    pass
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
+
+class CustomGroupAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+    pass
+admin.site.unregister(Group)
+admin.site.register(Group, CustomGroupAdmin)
+
+class CustomThemesAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+    pass
+admin.site.unregister(Theme)
+admin.site.register(Theme, CustomThemesAdmin)
+
 
 class ProfileInline(admin.StackedInline):
     model = Profile
