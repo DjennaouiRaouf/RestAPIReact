@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['.railway.app','localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +129,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend','build', 'static'),
+    os.path.join(BASE_DIR, 'frontend','build', 'admin/static'),
     os.path.join(BASE_DIR, "media"),
 ]
 
@@ -171,16 +170,15 @@ JAZZMIN_SETTINGS = {
 }
 
 
-
+'''
 CSRF_TRUSTED_ORIGINS = [
     'https://djennaouiraouf.up.railway.app',
 ]
 CORS_ORIGIN_WHITELIST = [
     'https://djennaouiraouf.up.railway.app',
 ]
-
 '''
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-'''
