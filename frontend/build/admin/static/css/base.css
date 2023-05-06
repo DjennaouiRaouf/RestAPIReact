@@ -461,12 +461,20 @@ input[type=number], input[type=tel], textarea, select, .vTextField {
     margin-top: 0;
     color: var(--body-fg);
     background-color: var(--body-bg);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    resize: none;
+
 }
+
+
 
 input[type=text]:focus, input[type=password]:focus, input[type=email]:focus,
 input[type=url]:focus, input[type=number]:focus, input[type=tel]:focus,
 textarea:focus, select:focus, .vTextField:focus {
-    border-color: var(--body-quiet-color);
+    outline: none;
 }
 
 select {
@@ -990,13 +998,14 @@ a.deletelink:focus, a.deletelink:hover {
 }
 
 #content-related .module h2 {
-    background: none;
+    background-color: #007bff;
     padding: 16px;
     margin-bottom: 16px;
     border-bottom: 1px solid var(--hairline-color);
     font-size: 1.125rem;
-    color: var(--body-fg);
+    color: #ffffff;
 }
+
 
 .delete-confirmation form input[type="submit"] {
     background: var(--delete-button-bg);

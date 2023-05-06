@@ -48,6 +48,14 @@
     padding: 8px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+
+.login .form-row #id_username:focus, .login .form-row #id_password:focus {
+   outline: none;
 }
 
 .login .submit-row {
