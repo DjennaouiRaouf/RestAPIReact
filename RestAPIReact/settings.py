@@ -132,7 +132,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend','build', 'admin/static'),
+    os.path.join(BASE_DIR, 'frontend','build', 'static'),
     os.path.join(BASE_DIR, "media"),
 ]
 
@@ -154,26 +154,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 PHONENUMBER_DEFAULT_REGION = 'DZ'
 
 
-JAZZMIN_SETTINGS = {
-    # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "CMS",
-
-    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "CMS",
-
-    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "CMS",
-
-    # Welcome text on the login screen
-    "welcome_sign": "Welcome to the CMS",
-
-    # Whether to aut expand the menu
-    "navigation_expanded": False,
-
-}
-
-
-
 CSRF_TRUSTED_ORIGINS = [
     'https://djennaouiraouf.up.railway.app',
 ]
@@ -185,4 +165,5 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
 '''
