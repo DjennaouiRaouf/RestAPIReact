@@ -8,7 +8,7 @@ from import_export.admin import ImportExportMixin, ExportActionMixin
 from RestAPIReact import settings
 from .models import *
 
-lp=40
+lp=25
 
 class CustomUserAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     pass

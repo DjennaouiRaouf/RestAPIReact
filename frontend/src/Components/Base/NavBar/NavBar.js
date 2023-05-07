@@ -6,6 +6,7 @@ import empty_avatar from './avatar_empty.png';
 
 function NavBar() {
   const [avatar, setAvatar] = useState({});
+   const [types, setTypes] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -17,11 +18,28 @@ function NavBar() {
       .catch((error) => {
         console.log(error);
       });
+
+    axios.get(`${config.apiUrl}/type/`)
+      .then((response) => {
+        setTypes(response.data);
+
+      })
+      .catch((error) => {
+        console.log(error);
+
+      });
+
+
+
+
+
+
   });
 
   const goToCvScroll = (elemId) => {
-     //var elem = document.getElementById(elemId);
-     //elem.scrollIntoView();
+      console.log(elemId)
+    const myDiv = document.getElementById(elemId);
+    myDiv.scrollIntoView({ behavior: 'smooth' });
   };
 
   const switch_page =() => {
@@ -66,25 +84,21 @@ function NavBar() {
                                       <div className="dropdown-menu " data-bs-popper="none"
                                            style={{"background": "rgb(236,241,244)"}}>
                                           <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("prof")}>Profil</Link>
+                                                onClick={()=>goToCvScroll("prof")}>Profil</Link>
                                           <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("p")}>Parcours</Link>
+                                                onClick={()=>goToCvScroll("p")}>Parcours</Link>
+
+                                            {types.map((t,k) => (
+                                                 <Link className="dropdown-item float-on-hover" to="#"
+                                                onClick={()=>goToCvScroll(t.type)}>{t.type}</Link>
+                                            ))}
+
+
+
                                           <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("Langage De Programmation")}>Langage de
-                                              programmation</Link>
+                                                onClick={()=>goToCvScroll("proj")}>Projets</Link>
                                           <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("Systeme de Gestion de Base de Données")}>Base de
-                                              données</Link>
-                                          <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("Outils de Developpement")}>Outils de
-                                              developpement</Link>
-                                          <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("Systemes d'exploitations")}>Systemes
-                                              d'exploitations</Link>
-                                          <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("proj")}>Projets</Link>
-                                          <Link className="dropdown-item float-on-hover" to="#"
-                                                onClick={goToCvScroll("lng")}>Langues</Link>
+                                                onClick={()=>goToCvScroll("lng")}>Langues</Link>
                                       </div>
 
                                   </div>
