@@ -153,7 +153,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 PHONENUMBER_DEFAULT_REGION = 'DZ'
 
-'''
+
 CSRF_TRUSTED_ORIGINS = [
     'https://djennaouiraouf.up.railway.app',
 ]
@@ -165,5 +165,5 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
+'''
 
