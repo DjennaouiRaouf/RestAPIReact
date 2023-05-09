@@ -31,15 +31,14 @@ ALLOWED_HOSTS = ['.railway.app','localhost']
 # Application definition
 
 INSTALLED_APPS = [
-
-    'admin_interface',
-    'colorfield',
+    'baton',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'baton.autodiscover',
     'whitenoise.runserver_nostatic',
     'import_export',
     'phonenumber_field',
@@ -80,6 +79,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'RestAPIReact.wsgi.application'
 
@@ -153,7 +153,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 PHONENUMBER_DEFAULT_REGION = 'DZ'
 
-
+'''
 CSRF_TRUSTED_ORIGINS = [
     'https://djennaouiraouf.up.railway.app',
 ]
@@ -165,5 +165,27 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-'''
 
+
+BATON = {
+    'SITE_HEADER': 'CMS',
+    'SITE_TITLE': 'CMS',
+    'INDEX_TITLE': 'CMS',
+    'SUPPORT_HREF': '',
+    'COPYRIGHT': '',
+    'POWERED_BY': ': Djennaoui Raouf',
+    'CONFIRM_UNSAVED_CHANGES': True,
+    'SHOW_MULTIPART_UPLOADING': True,
+    'ENABLE_IMAGES_PREVIEW': True,
+    'CHANGELIST_FILTERS_IN_MODAL': True,
+    'CHANGELIST_FILTERS_ALWAYS_OPEN': False,
+    'CHANGELIST_FILTERS_FORM': True,
+    'COLLAPSABLE_USER_AREA': False,
+    'MENU_ALWAYS_COLLAPSED': False,
+    'MENU_TITLE': 'Menu',
+    'MESSAGES_TOASTS': False,
+    'GRAVATAR_DEFAULT_IMG': '',
+
+
+
+}

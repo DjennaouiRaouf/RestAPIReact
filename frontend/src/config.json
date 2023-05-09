@@ -1,4 +1,4 @@
 {
-  "apiUrl": "https://djennaouiraouf.up.railway.app/api",
-  "mediaUrl": "https://djennaouiraouf.up.railway.app"
+  "apiUrl": "http://localhost:8000/api",
+  "mediaUrl": "http://localhost:8000"
 }
