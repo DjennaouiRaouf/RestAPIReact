@@ -31,10 +31,9 @@ ALLOWED_HOSTS = ['.railway.app','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'fontawesomefree',
+    'admin_extended',
     'admin_two_factor.apps.TwoStepVerificationConfig',
-    'jet',
-    'cabinet',
-    'imagefield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,6 +82,7 @@ TEMPLATES = [
             ],
         },
     },
+
 ]
 
 
@@ -174,3 +174,20 @@ CORS_ALLOWED_ORIGINS = [
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 ADMIN_TWO_FACTOR_NAME = 'API'
+
+ADMIN_EXTENDED = {
+    'MENU_APP_ORDER': ['user', 'auth','admin_two_factor','api','admin_extended'],
+    'MENU_MODEL_ORDER': ['User', 'Group','admin_two_factor','api','admin_extended'],
+    'APP_ICON': {
+        'user': 'fas fa-user',
+        'auth': 'fas fa-users',
+        'admin_two_factor': 'fas fa-shield-alt',
+        'api':'fas fa-layer-group',
+        'admin_extended':'fas fa-bookmark',
+
+    },
+
+
+    'MODEL_ADMIN_TABBED_INLINE': True,
+    'RAW_ID_FIELDS_AS_DEFAULT': False,
+}

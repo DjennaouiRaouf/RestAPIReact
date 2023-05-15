@@ -9,15 +9,6 @@ from .models import *
 
 lp=25
 
-class CustomUserAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
-    pass
-admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
-
-class CustomGroupAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
-    pass
-admin.site.unregister(Group)
-admin.site.register(Group, CustomGroupAdmin)
 
 
 
@@ -180,3 +171,5 @@ class ProjetAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
     list_per_page = lp
     list_display = ('titre','annee','text')
 admin.site.register(Projet, ProjetAdmin)
+
+
