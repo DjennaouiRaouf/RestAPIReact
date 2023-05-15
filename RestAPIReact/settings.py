@@ -31,21 +31,26 @@ ALLOWED_HOSTS = ['.railway.app','localhost']
 # Application definition
 
 INSTALLED_APPS = [
-    'baton',
+    'admin_two_factor.apps.TwoStepVerificationConfig',
+    'jet',
+    'cabinet',
+    'imagefield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'baton.autodiscover',
     'whitenoise.runserver_nostatic',
-    'import_export',
     'phonenumber_field',
+    'import_export',
     'rest_framework',
     'corsheaders',
     'api',
     'core',
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -58,8 +63,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'RestAPIReact.urls'
@@ -167,25 +172,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-BATON = {
-    'SITE_HEADER': 'CMS',
-    'SITE_TITLE': 'CMS',
-    'INDEX_TITLE': 'CMS',
-    'SUPPORT_HREF': '',
-    'COPYRIGHT': '',
-    'POWERED_BY': ': Djennaoui Raouf',
-    'CONFIRM_UNSAVED_CHANGES': True,
-    'SHOW_MULTIPART_UPLOADING': True,
-    'ENABLE_IMAGES_PREVIEW': True,
-    'CHANGELIST_FILTERS_IN_MODAL': True,
-    'CHANGELIST_FILTERS_ALWAYS_OPEN': False,
-    'CHANGELIST_FILTERS_FORM': True,
-    'COLLAPSABLE_USER_AREA': False,
-    'MENU_ALWAYS_COLLAPSED': False,
-    'MENU_TITLE': 'Menu',
-    'MESSAGES_TOASTS': False,
-    'GRAVATAR_DEFAULT_IMG': '',
-
-
-
-}
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+ADMIN_TWO_FACTOR_NAME = 'API'

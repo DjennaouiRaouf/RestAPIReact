@@ -25,7 +25,9 @@ from core.views import index
 
 
 urlpatterns = [
-    path('baton/', include('baton.urls')),
+
+    path('two_factor/', include(('admin_two_factor.urls', 'admin_two_factor'), namespace='two_factor')),
+    path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('', index, name="frontend"),
     path('api/', include('api.urls')),
