@@ -35,6 +35,7 @@ class Competence(models.Model):
     image = models.ImageField(upload_to='images/')
     title=models.CharField(max_length=100,unique=True)
     text=models.TextField()
+    visible=models.BooleanField(default=True)
 
     def __str__(self):
         return  self.title

@@ -60,7 +60,7 @@ admin.site.register(Profile, ProfileAdmin)
 
 class CompetenceAdmin(admin.ModelAdmin):
     list_per_page = lp
-    list_display = ('title','type','image','text',)
+    list_display = ('title','type','image','text','visible')
 
     list_filter = ['title','type','image','text',]
 
