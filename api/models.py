@@ -7,9 +7,9 @@ from django.core.validators import MinValueValidator
 
 class Profile(models.Model):
     grade = [
-        ('L', 'Licence'),
-        ('M', 'Master'),
-        ('D', 'Doctorat'),
+        ('Licence', 'Licence'),
+        ('Master', 'Master'),
+        ('Doctorat', 'Doctorat'),
     ]
     nom = models.CharField(max_length=250)
     prenom = models.CharField(max_length=250)
@@ -18,7 +18,7 @@ class Profile(models.Model):
     date_de_naissance= models.DateField(null=False)
     lieu_de_naissance= models.CharField(max_length=300,null=False)
     numero_de_telephone= PhoneNumberField()
-    diplome=models.CharField(max_length=1, choices=grade,null=False)
+    diplome=models.CharField(max_length=100, choices=grade,null=False)
     titre_du_diplome=models.CharField(max_length=300,null=False)
     adresse=models.CharField(max_length=350,null=False)
     universite = models.CharField(max_length=250, null=False)

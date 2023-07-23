@@ -2,7 +2,6 @@ import os
 
 from django.contrib import admin
 from django.contrib.auth.models import Group
-from import_export.admin import ImportExportMixin, ExportActionMixin
 
 from RestAPIReact import settings
 from .models import *
@@ -17,7 +16,7 @@ class ProfileInline(admin.StackedInline):
     can_delete = False
 
 
-class ProfileAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class ProfileAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('nom','prenom','photo_de_profil','date_de_naissance','lieu_de_naissance','numero_de_telephone',
                     'diplome','titre_du_diplome','adresse','universite','email','text','cv')
@@ -59,7 +58,7 @@ class ProfileAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 admin.site.register(Profile, ProfileAdmin)
 
 
-class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class CompetenceAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('title','type','image','text',)
 
@@ -93,7 +92,7 @@ class CompetenceAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 admin.site.register(Competence,CompetenceAdmin)
 
 
-class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class AvatarAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('user_id','image')
     list_filter = ['user_id']
@@ -125,13 +124,13 @@ class AvatarAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 admin.site.register(Avatar, AvatarAdmin)
 
 
-class TypeAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class TypeAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('type',)
 admin.site.register(Type, TypeAdmin)
 
 
-class LangueAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class LangueAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('langue','image','score',)
 
@@ -161,13 +160,13 @@ class LangueAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
 admin.site.register(Langue, LangueAdmin)
 
 
-class ParcourAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class ParcourAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('titre','annee','text')
 admin.site.register(Parcour, ParcourAdmin)
 
 
-class ProjetAdmin(ImportExportMixin, ExportActionMixin,admin.ModelAdmin):
+class ProjetAdmin(admin.ModelAdmin):
     list_per_page = lp
     list_display = ('titre','annee','text')
 admin.site.register(Projet, ProjetAdmin)
